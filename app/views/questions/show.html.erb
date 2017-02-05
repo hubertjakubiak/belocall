@@ -17,10 +17,12 @@
 
 <h2>Answers</h2>
 
-<% if @question.answers.any? %>
+<% if @question.answers.any?%>
   <ul>
   <% @question.answers.each do |answer| %>
-    <li><%= answer.body %></li>
+    <% if answer.persisted? %>
+      <li><%= answer.body %></li>
+    <% end %>
   <% end %>
   </ul>
 <% end %>
