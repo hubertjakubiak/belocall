@@ -2,8 +2,11 @@ class AnswersController < ApplicationController
   before_action :set_question
   def create
     @answer = @question.answers.build(answer_params)
-    @answer.save
-    redirect_to @question
+    if @answer.save
+      redirect_to @question
+    else
+      render 'questions/show'
+    end
   end
 
   def answer_params
