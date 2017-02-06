@@ -1,4 +1,5 @@
-= form_for(@question) do |f|
+%h2 Add new Question
+= simple_form_for(@question) do |f|
   - if @question.errors.any?
     #error_explanation
       %h2
@@ -8,9 +9,8 @@
         - @question.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :body
-    %br/
-    = f.text_area :body
-  = f.collection_select :city_id, City.all, :id, :name, {}
+    = f.input :body
+  .field
+    = f.input :city_id, collection: City.all, input_html: {data: { 'live-search': true }}
   .actions
-    = f.submit
+    = f.submit 'Add new question', class: 'btn btn-primary'

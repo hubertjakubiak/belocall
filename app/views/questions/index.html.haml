@@ -1,16 +1,17 @@
-%p#notice= notice
-%h1 Questions
-%table.table
-  %thead
-    %tr
-      %th Body
-      %th{:colspan => "3"}
-  %tbody
-    - @questions.each do |question|
-      %tr
-        %td= link_to question.body, question
-        %td= link_to 'Show', question
-        %td= link_to 'Edit', edit_question_path(question)
-        %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Question', new_question_path, {class: 'btn btn-primary'}
+.row
+  .col-md-9
+    %h2 Browse
+    %table.table
+      %thead
+        %tr
+          %th Question
+          %th City
+          %th Answers
+      %tbody
+        - @questions.each do |question|
+          %tr
+            %td= link_to question.body, question
+            %td= link_to question.city.name, question
+            %td= link_to question.answers.count, question
+  .col-md-3
+    = render 'questions/form'
