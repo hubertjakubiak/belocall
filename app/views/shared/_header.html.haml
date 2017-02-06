@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "#"} Brand
+      %a.navbar-brand{:href => "#"} BeLocall
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav
@@ -15,7 +15,7 @@
             Link
             %span.sr-only (current)
         %li
-          %a{:href => "#"} Link
+          = link_to 'Questions', questions_url
         %li.dropdown
           %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
             Dropdown
